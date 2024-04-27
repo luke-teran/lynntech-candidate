@@ -18,19 +18,19 @@ extern const int SAMPLE_SIZE;
 signed int fn_a(int a, int b);
 void fn_b(float mean, float std_dev, const int*);
 float std_dev_calc(float sample_mean, float sample[], const int* SAMPLE_SIZE);
+void console_border();
 
+// Implementation of functions or classes, if applicable
 class ArrayData {
 private:
     std::vector<int> data;
     int min_value,
         max_value;
 public:
-    // std::vector<int> random_array_generator(const int &RANDOM_ARRAY_SIZE);
     void random_array_generator(const int &RANDOM_ARRAY_SIZE);
     void MinMaxUpdate();
     void printValues();
     void printMinMax();
 };
-// Implementation of functions or classes, if applicable
-#endif
 
+#endif

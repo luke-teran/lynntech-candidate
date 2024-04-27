@@ -67,14 +67,18 @@ float std_dev_calc(float sample_mean, float sample[], const int* SAMPLE_SIZE) {
     return std_dev;
 }
 
-// std::vector<int> ArrayData::random_array_generator(const int &RANDOM_ARRAY_SIZE) {
+void console_border() {
+    for(int border = 0; border < 20; border++) {
+        cout << "-";
+    } cout << endl;
+}
+
 void ArrayData::random_array_generator(const int &RANDOM_ARRAY_SIZE) {
     data.clear();
     srand(time(NULL));
     std::vector<int> random_array;
     for(int random_array_index = 0; random_array_index < RANDOM_ARRAY_SIZE; random_array_index++) {
         random_array.push_back(rand());
-        // cout << "[" << random_array_index+1 << "]: " << random_array.at(random_array_index) << endl;
     }
     data = random_array;
 }
@@ -84,12 +88,12 @@ void ArrayData::MinMaxUpdate() {
     max_value = *std::max_element(data.begin(),data.end());
 }
 
-
 void ArrayData::printValues() {
     for(int array_index = 0; array_index < data.size(); array_index++) {
         cout << "[" << array_index+1 << "]:" << "\t" << data.at(array_index) << endl;
     }
 };
+
 void ArrayData::printMinMax() {
     cout << "Maximum element:" << "\t" << max_value << endl;
     cout << "Minimum element:" << "\t" << min_value << endl;
