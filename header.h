@@ -9,11 +9,10 @@
 #ifndef HEADER_H
 #define HEADER_H
 #include <vector>
+
 // Define any global constants or macros here
 extern const int SAMPLE_SIZE;
-
 // Declare any global variables here
-
 // Define any global functions or classes here
 signed int fn_a(int a, int b);
 void fn_b(float mean, float std_dev, const int*);
