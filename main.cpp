@@ -6,25 +6,11 @@
  ******************************************************************************/
 
 // Include necessary headers here
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <cmath>
-#include <sstream>
-#include <cstdlib>
-#include <random>
-#include <cmath>
-#include <vector>
-#include <algorithm>
 #include "header.h"
 // Define any global constants or macros here
-using namespace std;
-const int RANDOM_ARRAY_SIZE = 16;
-
+extern const int RANDOM_ARRAY_SIZE;
 // Declare any global variables here
-
 // Define any global functions or classes here
-
 // Implementation of functions or classes, if applicable
 
 int main() {
