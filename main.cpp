@@ -11,11 +11,12 @@
 #include <fstream>
 #include <cmath>
 #include <sstream>
-#include "header.h"
 #include <cstdlib>
+#include <random>
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include "header.h"
 // Define any global constants or macros here
 using namespace std;
 const int RANDOM_ARRAY_SIZE = 16;
