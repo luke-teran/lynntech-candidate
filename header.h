@@ -2,16 +2,23 @@
  * File:        header.h
  * Author:      Luke Teran
  * Date:        24 April 2024
- * Description: [Brief description of the file's purpose and contents]
+ * Description: Includes necessary headers, defines global constants and macros, prototypes functions, and declares ArrayData class
  ******************************************************************************/
 
 // Include necessary headers here
 #ifndef HEADER_H
 #define HEADER_H
+#include <cstdlib>
+#include <random>
+#include <algorithm>
+#include <iostream>
 #include <vector>
+using namespace std;
 
 // Define any global constants or macros here
-extern const int SAMPLE_SIZE;
+// extern const int SAMPLE_SIZE;
+const int SAMPLE_SIZE = 100;
+const int RANDOM_ARRAY_SIZE = 16;
 // Declare any global variables here
 // Define any global functions or classes here
 signed int fn_a(int a, int b);
