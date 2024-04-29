@@ -9,8 +9,6 @@
 #include "header.h"
 // Define any global constants or macros here
 extern const int RANDOM_ARRAY_SIZE;
-// Declare any global variables here
-// Define any global functions or classes here
 // Implementation of functions or classes, if applicable
 
 int main() {

@@ -16,10 +16,8 @@
 using namespace std;
 
 // Define any global constants or macros here
-// extern const int SAMPLE_SIZE;
 const int SAMPLE_SIZE = 100;
 const int RANDOM_ARRAY_SIZE = 16;
-// Declare any global variables here
 // Define any global functions or classes here
 signed int fn_a(int a, int b);
 void fn_b(float mean, float std_dev, const int*);
