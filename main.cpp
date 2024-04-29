@@ -2,7 +2,7 @@
  * File:        main.cpp
  * Author:      Luke Teran
  * Date:        24 April 2024
- * Description: [Brief description of the file's purpose and contents]
+ * Description: Integrates header.h, functions.cpp for desired output
  ******************************************************************************/
 
 // Include necessary headers here

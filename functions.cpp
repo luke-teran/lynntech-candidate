@@ -2,7 +2,7 @@
  * File:        functions.cpp
  * Author:      Luke Teran
  * Date:        24 April 2024
- * Description: [Brief description of the file's purpose and contents]
+ * Description: Implementation of header.h fn prototypes. Written to meet requirements of "Candidate Technical Assessment 2024.pdf".
  ******************************************************************************/
 // Include necessary headers here
 #include "header.h"
