@@ -48,14 +48,24 @@ void Palindrome::random_AlphaNum() {
       break;
     }
   }
-
+  // Debug: output should be ABCDCBA
+  // randomArray = {'A', 'B', 'C', 'D'};
   text = randomArray;
+  for (int i = inputLength - 2; i >= 0; i--) {
+    // right to left iteration of vector
+    text.push_back(randomArray.at(i));
+  }
 }
 void Palindrome::print() {
   cout << "Desired length: " << inputLength << endl
        << "Palindrome of length: " << text.size() << endl;
+  // cout << endl << "randomArray:" << endl;
+  // for (int i = 0; i < inputLength; i++) {
+  //   cout << randomArray.at(i) << ' ';
+  // }
+  // cout << endl;
   cout << endl << "text:" << endl;
-  for (int i = 0; i < inputLength; i++) {
+  for (int i = 0; i < text.size(); i++) {
     cout << text.at(i) << ' ';
   }
   cout << endl;
