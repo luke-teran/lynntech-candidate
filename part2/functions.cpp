@@ -12,7 +12,7 @@
 // Implementation of functions or classes, if applicable
 
 int Palindrome::getPalindromeLength() {
-  cout << "Input desired palindrome length: ";
+  cout << "Input desired random palindrome length: ";
   cin >> inputLength;
   return inputLength;
 };
@@ -47,8 +47,6 @@ void Palindrome::random_AlphaNum() {
       break;
     }
   }
-  // Debug: output should be ABCDCBA
-  // randomArray = {'A', 'B', 'C', 'D'};
   text = randomArray;
   for (int i = inputLength / 2 - 1; i >= 0; i--) {
     // right to left iteration of vector
@@ -56,10 +54,7 @@ void Palindrome::random_AlphaNum() {
   }
 }
 void Palindrome::print() {
-  cout << "Desired length: " << inputLength << endl
-       << "Palindrome of length: " << text.size() << endl;
-
-  cout << endl << "random alphanumeric sequence:" << endl;
+  cout << "random alphanumeric sequence:" << endl;
   for (int i = 0; i < randomArray.size(); i++) {
     cout << randomArray.at(i) << ' ';
   }
