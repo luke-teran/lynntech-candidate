@@ -65,3 +65,30 @@ void Palindrome::print() {
   }
   cout << endl;
 }
+
+int rollDice() {
+  random_device rd; // set seed
+  mt19937 gen(rd());
+  uniform_int_distribution<> distrib(1, 6);
+  return distrib(gen);
+}
+
+vector<int> sumVectorofVector(vector<vector<int>> parentVector) {
+  vector<int> sumVector;
+  sumVector.clear();
+  for (int i = 0; i < parentVector.size(); i++) {
+    for (int j = 0; j < ((parentVector.at(i)).size()); j++) {
+      sumVector.at(i) += ((parentVector.at(i)).at(j));
+    }
+  }
+  return sumVector;
+}
+
+double averageofVector(vector<vector<int>> parentVector) {
+  double average;
+  for (int i = 0; i < parentVector.size(); i++) {
+    average += double(parentVector.at(i));
+  }
+  average /= parentVector.size();
+}
+double stdDevSumVectorofVector(vector<vector<int>>);

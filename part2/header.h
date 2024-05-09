@@ -35,4 +35,8 @@ public:
   void random_AlphaNum();
   void print();
 };
+
+int rollDice();
+double averageSumVectorofVector(vector<int>);
+double stdDevSumVectorofVector(vector<int>);
 #endif
