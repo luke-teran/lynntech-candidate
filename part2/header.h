@@ -17,7 +17,6 @@
 using namespace std;
 
 // Define any global constants or macros here
-const int SAMPLE_SIZE = 100;
 
 // Define any global functions or classes here
 
@@ -33,9 +32,7 @@ private:
 
 public:
   std::vector<char> text;
-
   void random_AlphaNum();
-
   void print();
 };
 #endif
