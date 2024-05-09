@@ -27,7 +27,9 @@ private:
   std::vector<int> random_array;
   int inputLength;
   int getPalindromeLength();
-  void random_array_generator();
+  // Placed here to simplify scope issues for printing in print member function.
+  // Not necessary to retain original random alphanumeric array.
+  std::vector<char> randomArray;
 
 public:
   std::vector<char> text;

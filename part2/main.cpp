@@ -9,11 +9,12 @@
 #include "functions.cpp"
 #include "header.h"
 // Define any global constants or macros here
-extern const int RANDOM_ARRAY_SIZE;
+
 // Implementation of functions or classes, if applicable
 
-// Write a function which generates a random alphanumeric palindrome of user
-// input length. Provide your script and an example output.
+// Part2 Task 1A:
+//     Write a function which generates a random alphanumeric palindrome of user
+//     input length. Provide your script and an example output.
 
 int main() {
   Palindrome userPalindrome;
