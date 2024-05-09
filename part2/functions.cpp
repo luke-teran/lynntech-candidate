@@ -33,8 +33,9 @@ void Palindrome::random_AlphaNum() {
   uniform_int_distribution<> distrib(1, 3);
   std::vector<char> randomArray;
 
-  char choice = distrib(gen);
+  char choice;
   for (int i = 0; i < inputLength; i++) {
+    choice = distrib(gen);
     switch (choice) {
     case 1:
       randomArray.push_back(uniform_int_distribution<int>(48, 57)(gen));
