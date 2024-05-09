@@ -19,7 +19,7 @@ int Palindrome::getPalindromeLength() {
 
 void Palindrome::random_array_generator() {
   srand(time(NULL));
-  for (int random_array_index = 0; random_array_index < inputLength;
+  for (int random_array_index = 0; random_array_index < inputLength + 1;
        random_array_index++) {
     random_array.push_back(rand());
   }
@@ -30,12 +30,11 @@ void Palindrome::random_AlphaNum() {
   getPalindromeLength();
   random_device rd;
   mt19937 gen(rd());
-
   uniform_int_distribution<> distrib(1, 3);
   std::vector<char> randomArray;
 
   char choice = distrib(gen);
-  for (int i = 1; i < inputLength; i++) {
+  for (int i = 0; i < inputLength; i++) {
     switch (choice) {
     case 1:
       randomArray.push_back(uniform_int_distribution<int>(48, 57)(gen));
@@ -52,19 +51,11 @@ void Palindrome::random_AlphaNum() {
   text = randomArray;
 }
 void Palindrome::print() {
-  try {
-    cout << "Desired length: " << inputLength << endl
-         << "Palindrome of length: " << text.size() << endl;
-    cout << "Array: [";
-    for (int i = 0; i < inputLength; i++) {
-      cout << text.at(i % inputLength) << ", ";
-    }
-    cout << endl << "randomArray: [";
-    for (int i = 0; i < inputLength; i++) {
-      cout << random_array.at(i % inputLength) << ", ";
-    }
-    cout << "]\n";
-  } catch (const std::exception &e) {
-    std::cerr << e.what() << '\n' << "FOUND" << '\n';
+  cout << "Desired length: " << inputLength << endl
+       << "Palindrome of length: " << text.size() << endl;
+  cout << endl << "text:" << endl;
+  for (int i = 0; i < inputLength; i++) {
+    cout << text.at(i) << ' ';
   }
+  cout << endl;
 }

@@ -25,7 +25,7 @@ const int SAMPLE_SIZE = 100;
 class Palindrome {
 private:
   std::vector<int> random_array;
-  char inputLength;
+  int inputLength;
   int getPalindromeLength();
   void random_array_generator();
 
