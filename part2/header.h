@@ -37,6 +37,6 @@ public:
 };
 
 int rollDice();
-double averageSumVectorofVector(vector<int>);
+double averageofVector(vector<int>);
 double stdDevSumVectorofVector(vector<int>);
 #endif

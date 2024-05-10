@@ -84,11 +84,12 @@ vector<int> sumVectorofVector(vector<vector<int>> parentVector) {
   return sumVector;
 }
 
-double averageofVector(vector<vector<int>> parentVector) {
-  double average;
+double averageofVector(vector<int> parentVector) {
+  double average = 0;
   for (int i = 0; i < parentVector.size(); i++) {
-    average += double(parentVector.at(i));
+    average += (parentVector.at(i));
   }
   average /= parentVector.size();
+  return average;
 }
-double stdDevSumVectorofVector(vector<vector<int>>);
+double stdDevSumVectorofVector(vector<int>) { return 0; }
