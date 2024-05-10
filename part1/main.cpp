@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 // Include necessary headers here
+#include "functions.cpp"
 #include "header.h"
 // Define any global constants or macros here
 extern const int RANDOM_ARRAY_SIZE;
