@@ -15,7 +15,7 @@ int Palindrome::getPalindromeLength() {
   cout << "Input desired random palindrome length: ";
   cin >> inputLength;
   return inputLength;
-};
+}
 
 void Palindrome::random_AlphaNum() {
   text.clear();
@@ -66,30 +66,75 @@ void Palindrome::print() {
   cout << endl;
 }
 
-int rollDice() {
+int RandomIntegerGenerator_Bounded(int min, int max) {
   random_device rd; // set seed
   mt19937 gen(rd());
-  uniform_int_distribution<> distrib(1, 6);
+  uniform_int_distribution<> distrib(min, max);
   return distrib(gen);
 }
 
-vector<int> sumVectorofVector(vector<vector<int>> parentVector) {
-  vector<int> sumVector;
-  sumVector.clear();
-  for (int i = 0; i < parentVector.size(); i++) {
-    for (int j = 0; j < ((parentVector.at(i)).size()); j++) {
-      sumVector.at(i) += ((parentVector.at(i)).at(j));
+diceExperiment::diceExperiment() {
+  const int DICE_MINIMUM = 1, DICE_MAXIMUM = 6;
+  int numberofDice, numberofRolls;
+  cout << "Number of dice: ";
+  cin >> numberofDice;
+  cout << "Number of rolls (samples): ";
+  cin >> numberofRolls;
+
+  vector<vector<int>> diceRollEvents;
+  diceRollEvents.resize(numberofRolls);
+  for (int rollIndex = 0; rollIndex < numberofRolls; rollIndex++) {
+    for(int j = 0; j < numberofDice; j++) {
+      diceRollEvents.at(rollIndex).push_back(RandomIntegerGenerator_Bounded(DICE_MINIMUM,DICE_MAXIMUM));
     }
   }
-  return sumVector;
+  sampleSumVector = sumVector(diceRollEvents);
+  rollAverage = averageofVector(sampleSumVector);
+  stdDevRolls = std_dev_of_vector(sampleSumVector, rollAverage);
 }
 
-double averageofVector(vector<int> parentVector) {
-  double average = 0;
-  for (int i = 0; i < parentVector.size(); i++) {
-    average += (parentVector.at(i));
+vector<int> diceExperiment::sumVector(vector<vector<int>> samplesVector) {
+  vector<int> sampleSumVector;
+  sampleSumVector.clear();
+
+  try {
+    for (int i = 0; i < samplesVector.size(); i++) {
+      sampleSumVector.push_back(0);
+      for (int j = 0; j < ((samplesVector.at(i)).size()); j++) {
+        sampleSumVector.at(i) += samplesVector.at(i).at(j);
+      }
+    }
+
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << '\n' << "TRYCATCH\n";
   }
-  average /= parentVector.size();
+  return sampleSumVector;
+}
+
+double diceExperiment::averageofVector(vector<int> sampleSumVector) {
+  double average = 0;
+  for (int i = 0; i < sampleSumVector.size(); i++) {
+    average += (sampleSumVector.at(i));
+  }
+  average /= sampleSumVector.size();
   return average;
 }
-double stdDevSumVectorofVector(vector<int>) { return 0; }
+
+double diceExperiment::std_dev_of_vector(vector <int> samples, double mean) {
+  double sampleVarianceNumerator = 0, std_dev;
+
+  for (int sample_index = 0; sample_index < samples.size(); sample_index++) {
+    sampleVarianceNumerator += pow((samples.at(sample_index) - mean),2);
+  }
+  std_dev = sqrt(sampleVarianceNumerator/(samples.size()-1));
+  return std_dev;
+}
+
+void diceExperiment::print(){
+  cout << "Roll #\t| Sum" << endl;;
+  for(int rollIndex = 0; rollIndex < sampleSumVector.size(); rollIndex++) {
+    cout << (rollIndex+1) << ":\tΣ = " << sampleSumVector.at(rollIndex) << endl;
+  }
+  cout << "Average of Rolls: " << rollAverage << endl;
+  cout << "Standard Deviation of Rolls: " << stdDevRolls << endl;
+}

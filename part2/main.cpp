@@ -37,26 +37,10 @@ int main() {
   // Value1:  {[x, ..., y]
   // Value2:  [a, ..., b]}
 
-  // class diceExperiment {
-  // private:
-  // public:
-  // };
-  // diceExperiment PairofDice1000Rolls;
-  vector<vector<int>> diceRolls;
-  diceRolls.clear();
-  for (int rollIndex = 0; rollIndex < 1000; rollIndex++) {
-    diceRolls.push_back({rollDice(), rollDice()});
-    cout << diceRolls.at(rollIndex)[0] << diceRolls.at(rollIndex)[1] << endl;
-  }
-  cout << (diceRolls.at(0)).size() << endl;
+  
 
-  try {
-    cout << "sumvectorinfo :" << endl
-         << sumVectorofVector(diceRolls).at(0)
-         << sumVectorofVector(diceRolls).size() << endl;
-    // averageofVector(sumVectorofVector(diceRolls));
-    // stdDevSumVectorofVector(sumVectorofVector(diceRolls));
-  } catch (const std::exception &e) {
-    std::cerr << e.what() << '\n' << "TRYCATCH\n";
-  }
+  diceExperiment diceTest;
+  diceTest.print();
+  
 }
+

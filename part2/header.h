@@ -36,7 +36,23 @@ public:
   void print();
 };
 
-int rollDice();
-double averageofVector(vector<int>);
-double stdDevSumVectorofVector(vector<int>);
+class diceExperiment {
+private:
+  double averageofVector(vector<int>);
+  double std_dev_of_vector(vector <int> sampleSumVector, double mean);
+  vector<int> sumVector(vector<vector<int>> samples);
+
+public:
+  diceExperiment();
+  int rollDice();
+  vector <vector <int>> diceRollEvents;
+  vector <int> sampleSumVector;
+  double rollAverage;
+  double stdDevRolls;
+  double mean = 0;
+  void print();
+};
+
+
 #endif
+
