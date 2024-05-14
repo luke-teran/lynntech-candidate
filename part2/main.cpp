@@ -22,34 +22,17 @@
 // rolled pairs. Provide your script and its output.
 
 int main() {
-  while(0){
-  // 1A
+  cout << "1. Coding with Randomness" << endl;
   Palindrome userPalindrome;
   userPalindrome.random_AlphaNum();
   userPalindrome.print();
-  // 1B
-  // Generate list of outcomes form rolling 2 dice 1000 times
-  // Print average and standard deviation of the sums of the dice. (average
-  // should be 7, std deviation 2-4?)
-  //
-  // 2d vector
-  // Roll #:  [1, ..., 1000]
-  // Value1:  {[x, ..., y]
-  // Value2:  [a, ..., b]}
-
+  
   diceExperiment diceTest;
   diceTest.print();
   
-  //Task2
-  /*
-  Write a function that performs a search for a specific element within an array of integers. The search 
-  will return the index of the element in the array, if it exists, and ‐1 otherwise. This function should 
-  have an asymptotic complexity of O ሺlogሺnሻሻ.
-  */}
-
-  task2helper();
-    
-  
+  cout << "2. Data Structure and Algorithm Coding" << endl;
+  task2helper();  
+  task2helper();  
 }
 
 // Geo‐spatial Analytics and Remote Sensing:

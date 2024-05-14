@@ -55,12 +55,12 @@ void Palindrome::random_AlphaNum() {
 }
 void Palindrome::print() {
   cout << "random alphanumeric sequence:" << endl;
-  for (int i = 0; i < randomArray.size(); i++) {
+  for (unsigned int i = 0; i < randomArray.size(); i++) {
     cout << randomArray.at(i) << ' ';
   }
 
   cout << endl << "palindrome of random alphanumeric sequence:" << endl;
-  for (int i = 0; i < text.size(); i++) {
+  for (unsigned int i = 0; i < text.size(); i++) {
     cout << text.at(i) << ' ';
   }
   cout << endl;
@@ -98,9 +98,9 @@ vector<int> diceExperiment::sumVector(vector<vector<int>> samplesVector) {
   sampleSumVector.clear();
 
   try {
-    for (int i = 0; i < samplesVector.size(); i++) {
+    for (unsigned int i = 0; i < samplesVector.size(); i++) {
       sampleSumVector.push_back(0);
-      for (int j = 0; j < ((samplesVector.at(i)).size()); j++) {
+      for (unsigned int j = 0; j < ((samplesVector.at(i)).size()); j++) {
         sampleSumVector.at(i) += samplesVector.at(i).at(j);
       }
     }
@@ -113,7 +113,7 @@ vector<int> diceExperiment::sumVector(vector<vector<int>> samplesVector) {
 
 double diceExperiment::averageofVector(vector<int> sampleSumVector) {
   double average = 0;
-  for (int i = 0; i < sampleSumVector.size(); i++) {
+  for (unsigned int i = 0; i < sampleSumVector.size(); i++) {
     average += (sampleSumVector.at(i));
   }
   average /= sampleSumVector.size();
@@ -123,7 +123,7 @@ double diceExperiment::averageofVector(vector<int> sampleSumVector) {
 double diceExperiment::std_dev_of_vector(vector <int> samples, double mean) {
   double sampleVarianceNumerator = 0, std_dev;
 
-  for (int sample_index = 0; sample_index < samples.size(); sample_index++) {
+  for (unsigned int sample_index = 0; sample_index < samples.size(); sample_index++) {
     sampleVarianceNumerator += pow((samples.at(sample_index) - mean),2);
   }
   std_dev = sqrt(sampleVarianceNumerator/(samples.size()-1));
@@ -132,7 +132,7 @@ double diceExperiment::std_dev_of_vector(vector <int> samples, double mean) {
 
 void diceExperiment::print(){
   cout << "Roll #\t| Sum" << endl;;
-  for(int rollIndex = 0; rollIndex < sampleSumVector.size(); rollIndex++) {
+  for(unsigned int rollIndex = 0; rollIndex < sampleSumVector.size(); rollIndex++) {
     cout << (rollIndex+1) << ":\tΣ = " << sampleSumVector.at(rollIndex) << endl;
   }
   cout << "Average of Rolls: " << rollAverage << endl;
@@ -156,8 +156,7 @@ vector<int> randomIntegerArrayGenerator(int randomArraySize, int random_min, int
 int binarySearch(vector<int> sortedIntegerArray, int key) {
   int lowerBound = 0;
   int upperBound = sortedIntegerArray.size();
-  int median = (upperBound-lowerBound)/2;
-  int target = sortedIntegerArray.at(median);
+
   while(lowerBound <= upperBound) {
     int median = lowerBound + (upperBound - lowerBound) / 2;
 
@@ -177,12 +176,12 @@ int binarySearch(vector<int> sortedIntegerArray, int key) {
 
 
 void testFn_binarySearch(vector<int> sortedIntegerArray) {
-  int numberoftests, secretValue, secretValueIndex, inputTargetBuff;
+  int numberoftests, secretValue, secretValueIndex;
   char inputchoice;
   cout << "Input Number of tests: ";
   cin >> numberoftests;
 
-  while(inputchoice != 'Y' & inputchoice != 'y' & inputchoice != 'N' & inputchoice != 'n') {
+  while((inputchoice != 'Y') & (inputchoice != 'y') & (inputchoice != 'N') & (inputchoice != 'n')) {
     cout << "Enter own target value(s)? Y/N: ";
     cin >> inputchoice;
     cout << endl;
