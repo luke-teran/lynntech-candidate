@@ -171,6 +171,7 @@ int binarySearch(vector<int> sortedIntegerArray, int key) {
       upperBound = median - 1;
     }
   }
+  // Not found returns -1, an invalid index.
   return -1;
 }
 
