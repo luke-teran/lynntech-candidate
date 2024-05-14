@@ -53,6 +53,11 @@ public:
   void print();
 };
 
+vector<int> randomIntegerArrayGenerator(int randomArraySize, int random_min, int random_max);
 
+int binarySearch(vector<int> sortedIntegerArray, int key);
+void testFn_binarySearch(vector<int> sortedIntegerArray);
+
+void task2helper();
 #endif
 

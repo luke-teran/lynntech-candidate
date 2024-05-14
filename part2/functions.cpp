@@ -26,7 +26,7 @@ void Palindrome::random_AlphaNum() {
   // Declared in header.h for scope purposes in Palindrome::print().
   // std::vector<char> randomArray;
 
-  char choice;
+  char inputchoice;
   int halfPalindromeSize;
   if (inputLength % 2) {
     halfPalindromeSize = inputLength / 2 + 1;
@@ -34,8 +34,8 @@ void Palindrome::random_AlphaNum() {
     halfPalindromeSize = inputLength / 2;
   }
   for (int i = 0; i < halfPalindromeSize; i++) {
-    choice = distrib(gen);
-    switch (choice) {
+    inputchoice = distrib(gen);
+    switch (inputchoice) {
     case 1:
       randomArray.push_back(uniform_int_distribution<int>(48, 57)(gen));
       break;
@@ -137,4 +137,95 @@ void diceExperiment::print(){
   }
   cout << "Average of Rolls: " << rollAverage << endl;
   cout << "Standard Deviation of Rolls: " << stdDevRolls << endl;
+}
+
+vector<int> randomIntegerArrayGenerator(int randomArraySize, int random_min, int random_max) {
+  vector<int> randomArray;
+  randomArray.clear();
+  
+  random_device rd;
+  mt19937 gen(rd());
+  uniform_int_distribution<> distrib(random_min,random_max);
+
+  for (int randomArrayIndex = 0; randomArrayIndex < randomArraySize; randomArrayIndex++) {
+    randomArray.push_back(distrib(gen));
+  }
+  return randomArray;
+}
+
+int binarySearch(vector<int> sortedIntegerArray, int key) {
+  int lowerBound = 0;
+  int upperBound = sortedIntegerArray.size();
+  int median = (upperBound-lowerBound)/2;
+  int target = sortedIntegerArray.at(median);
+  while(lowerBound <= upperBound) {
+    int median = lowerBound + (upperBound - lowerBound) / 2;
+
+    if(sortedIntegerArray.at(median) == key) {
+      return median;
+    }
+    if(sortedIntegerArray.at(median) < key) {
+      lowerBound = median + 1;
+    }
+    else {
+      upperBound = median - 1;
+    }
+  }
+  return -1;
+}
+
+
+void testFn_binarySearch(vector<int> sortedIntegerArray) {
+  int numberoftests, secretValue, secretValueIndex, inputTargetBuff;
+  char inputchoice;
+  cout << "Input Number of tests: ";
+  cin >> numberoftests;
+
+  while(inputchoice != 'Y' & inputchoice != 'y' & inputchoice != 'N' & inputchoice != 'n') {
+    cout << "Enter own target value(s)? Y/N: ";
+    cin >> inputchoice;
+    cout << endl;
+  }
+  for(int i = 0; i < numberoftests; i++) {
+    switch(inputchoice) {
+      case 'Y':
+      case 'y':
+        cout << "Enter target integer to search for: ";
+        while(!(cin >> secretValue)){
+          cout << "Invalid input. Must be a 32-bit integer." << endl;
+          cin.clear();
+          cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          cout << "Enter target integer to search for: ";
+        }
+        break;
+      case 'N':
+      case 'n':
+        // Random Target chosen by random index between 0 and max index of random integer array using existing fn
+        // randomIntegerArrayGenerator() for array of size 1 and accessing front element
+        secretValue = sortedIntegerArray.at(randomIntegerArrayGenerator(1, 0, (sortedIntegerArray.size()-1)).front());
+        break;
+    }
+    secretValueIndex = binarySearch(sortedIntegerArray, secretValue);
+    if(secretValueIndex != -1) {
+      cout << "Found " << secretValue << " at index: " << secretValueIndex << endl;
+    } else {
+      cout << "Could not find " << secretValue << " in array." << endl;
+    }
+  }  
+}
+
+void task2helper() {
+  int randomArraySizeBuff;
+  cout << "Input Random Array Size: ";
+  cin >> randomArraySizeBuff;
+  vector<int> randomIntegerArray = randomIntegerArrayGenerator(randomArraySizeBuff,INT32_MIN,INT32_MAX);
+  sort(randomIntegerArray.begin(),randomIntegerArray.end());  
+
+  cout << "Random Integer Array:" << endl << '[';
+  for(int i = 0; i < randomArraySizeBuff-1; i++){
+    cout << randomIntegerArray.at(i) << ",\t";
+  }
+  cout << randomIntegerArray.back() << ']' << endl;
+
+  testFn_binarySearch(randomIntegerArray);
 }
