@@ -4,13 +4,14 @@
  * Date:        24 April 2024
  * Description: Integrates header.h, functions.cpp for desired output
  ******************************************************************************/
+// Compile with g:
+// $ g++ main.cpp
+// Run with:
+// $ ./a.out
 
 // Include necessary headers here
-// #include "functions.cpp"
+#include "functions.cpp"
 #include "header.h"
-// Define any global constants or macros here
-
-// Implementation of functions or classes, if applicable
 
 // Part2 Task 1A:
 //     Write a function which generates a random alphanumeric palindrome of user
@@ -51,31 +52,4 @@ Measure distance to Masfajitas
 Masfajitas = Adjacent
 Measure angle between Masfajitas and Antenna from Lynntech's Backyard
 sin(Angle) * Adjacent = Antenna offset 
-*/
-
-
-
-
-/*
-Image Processing: 
-Load the provided bunny image for processing.  
-a. Provide the median pixel brightness of the Red channel. 
-RBG_Red.MedianPixelBrightness = 0.753
-
-
-b. Provide a histogram for the Blue channel with appropriate axis labels. 
-c. Perform the following manipulations in series: 
-1 https://en.wikipedia.org/wiki/Conjunction_(astronomy)#/media/File:Planetary_Conjunction_over_Paranal.jpg
-7 
-Intelligent Systems, Lynntech Inc., 2024 
-i. Rotate the Green channel by 90 degrees CW. Leave Red and Blue as they are. 
-ii. Apply a gradient filter to the rotated Green channel to highlight edges. If your chosen 
-gradient method produces negative values, take the absolute value. Normalize 0 to 255 
-iii. Apply a blurring filter to the gradient filtered Green channel using a kernel size of 21. 
-iv. Mask the Red channel so that all values > 230 are set to 0 
-v. Combine the modified Red and Green channels along with the Blue channel into a 
-greyscale image while weighting the Green channel twice as much as the other two. 
-vi. Rescale size to 150% and crop out the left half (keeping the right).  
-vii. Save the final image as a grayscale “[lastname]_bunny_out.png”. You will send this out 
-along with your compiled results.
 */
